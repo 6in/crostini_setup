@@ -87,4 +87,4 @@ code --install-extension ms-python.python
 sudo apt install -y fuse libfuse-dev
 echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
 source ~/.bashrc
-cp ./nvim $XDG_CONFIG_HOME/nvim
+cp -r ./nvim $XDG_CONFIG_HOME/nvim
