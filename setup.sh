@@ -21,7 +21,7 @@ sudo apt install -y fcitx-mozc tmux htop terminator build-essential
 echo "fcitx > /dev/null 2>&1" >> ~/.bashrc
 echo "/usr/bin/fcitx-autostart" >> ~/.bashrc
 
-sudo sh setup_root.sh
+sudo sh setup_root.sh $HOME
 
 fcitx-configtool
 
