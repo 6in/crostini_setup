@@ -1,0 +1,20 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+    let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    nnoremap <silent><C-t> :NERDTreeToggle<CR>
+    " ブックマークを初期表示
+    let g:NERDTreeShowBookmarks=1
+    " dotfile を表示
+    let g:NERDTreeShowHidden=1
+    autocmd vimenter * NERDTree
+    " Vim起動時にNERDTreeを表示
+'''
