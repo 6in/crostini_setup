@@ -21,6 +21,8 @@ sudo apt install -y fcitx-mozc tmux htop terminator build-essential
 echo "fcitx > /dev/null 2>&1" >> ~/.bashrc
 echo "/usr/bin/fcitx-autostart" >> ~/.bashrc
 
+sudo sh setup_root.sh
+
 fcitx-configtool
 
 # for japanese locale
@@ -37,6 +39,7 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 source ~/.bashrc
+
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 echo export PYENV_VIRTUALENV_DISABLE_PROMPT=1 >> ~/.bashrc
@@ -80,18 +83,8 @@ code --install-extension ms-ceintl.vscode-language-pack-ja
 code --install-extension webfreak.debug
 code --install-extension ms-python.python
 
-# neovim
-sudo apt install -y neovim
-mkdir -p ~/.config/nvim
+# neovim 事前準備
+sudo apt install -y fuse libfuse-dev
 echo 'export XDG_CONFIG_HOME=~/.config' >> ~/.bashrc
 source ~/.bashrc
-touch $XDG_CONFIG_HOME/nvim/dein.toml
-touch $XDG_CONFIG_HOME/nvim/dein_lazy.toml
-cp ./init.vim $XDG_CONFIG_HOME/nvim/
-
-# https://crowrabbit.hatenablog.com/entry/2019/05/16/ubuntu%E3%81%ABNeovim%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%82%8A%E7%B0%A1%E5%8D%98%E3%81%AA%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97
-
-pip3 install --upgrade neovim
-sudo apt install -y fuse libfuse-dev
-
-chmod u+x nvim.appimage && ./nvim.appimage
+cp ./nvim $XDG_CONFIG_HOME/nvim
